@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('development') {
+            steps {
+                echo 'Hello World-development'
+                bat '''mkdir newdir
+                        cd newdir
+                        git clone https://github.com/OmkarWadekar/wad-assignment.git'''
+            }
+        }
+        stage('qa') {
+            steps {
+                echo 'Hello World-qa'
+                bat '''cd newdir
+                        cd wad-assignment
+                        echo hello > newtextfile4.txt
+                        git add .
+                        git config --global user.email "wadekaromkar08@gmail.com"
+                        git config --global user.name "Omkar Wadekar"
+                        git commit -m "push from Jenkins using pipeline"
+                        git push https://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@github.com/OmkarWadekar/wad-assignment.git'''
+            }
+        }
+        stage('uat') {
+            steps {
+                echo 'Hello World-uat'
+                
+            }
+        }
+        
+    }
+}
