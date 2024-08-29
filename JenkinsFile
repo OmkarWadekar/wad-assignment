@@ -5,15 +5,15 @@ pipeline {
         stage('development') {
             steps {
                 echo 'Hello World-development'
-                bat '''mkdir newdir2
-                        cd newdir2
+                bat '''mkdir newdir3
+                        cd newdir3
                         git clone https://github.com/OmkarWadekar/wad-assignment.git'''
             }
         }
         stage('qa') {
             steps {
                 echo 'Hello World-qa'
-                bat '''cd newdir
+                bat '''cd newdir3
                         cd wad-assignment
                         echo hello > newtextfile5.txt
                         git add .
