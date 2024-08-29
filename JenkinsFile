@@ -5,8 +5,8 @@ pipeline {
         stage('development') {
             steps {
                 echo 'Hello World-development'
-                bat '''mkdir newdir
-                        cd newdir
+                bat '''mkdir newdir2
+                        cd newdir2
                         git clone https://github.com/OmkarWadekar/wad-assignment.git'''
             }
         }
@@ -15,11 +15,11 @@ pipeline {
                 echo 'Hello World-qa'
                 bat '''cd newdir
                         cd wad-assignment
-                        echo hello > newtextfile4.txt
+                        echo hello > newtextfile5.txt
                         git add .
                         git config --global user.email "wadekaromkar08@gmail.com"
                         git config --global user.name "Omkar Wadekar"
-                        git commit -m "push from Jenkins using pipeline"
+                        git commit -m "push from Jenkins using pipeline by omkar"
                         git push https://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@github.com/OmkarWadekar/wad-assignment.git'''
             }
         }
